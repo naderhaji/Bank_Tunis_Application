@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @DiscriminatorValue("2")
 @EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
-public class CompteEpargne extends CompteBanciare{
+public class CompteEpargne extends CompteBancaire{
 
     private double tauxInteret;
 }

@@ -18,7 +18,7 @@ import java.io.Serializable;
 @DiscriminatorValue("1")
 @EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
-public class CompteCourant extends CompteBanciare implements Serializable {
+public class CompteCourant extends CompteBancaire implements Serializable {
 
     private double decouvert;
 }
