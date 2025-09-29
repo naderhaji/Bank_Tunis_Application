@@ -35,6 +35,60 @@ public abstract class CompteBancaire implements Serializable {
     Collection<Operation> operations = new ArrayDeque<>();
 
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public String getNumCompte() {
+        return numCompte;
+    }
+    public void setNumCompte(String numCompte) {
+        this.numCompte = numCompte;
+
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance) {
+        this.balance = balance;
+
+    }
+
+    public String getDevis() {
+        return devis;
+    }
+    public void setDevis(String devis) {
+        this.devis = devis;
+    }
+
+    public AccountStatus getStatus() {
+        return status;
+    }
+
+    public static void setStaus(AccountStatus status) {
+        this.status = status;
+    }
+
+
+
+
+
+
+
+
+
 
 
 

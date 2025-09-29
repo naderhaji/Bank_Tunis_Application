@@ -1,37 +1,23 @@
-package com.TunisBank.entities;
+package com.TunisBank.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.Date;
 
-@Entity
-
 @Data
-
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client implements Serializable {
+public class ClientDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     private String nom;
     private String prenom;
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private String telephone;
     private String email;
     private String address;
-
-    @OneToMany(mappedBy = "client")
-    private Collection<CompteBancaire> comptes = new ArrayList<>();
-
 
     public String getNom() {
         return nom;
@@ -47,6 +33,7 @@ public class Client implements Serializable {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
     public Date getBirthday() {
         return birthday;
     }
@@ -56,15 +43,18 @@ public class Client implements Serializable {
     public String getTelephone() {
         return telephone;
     }
+
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
     public String getEmail() {
         return email;
     }
     public void setEmail(String email) {
         this.email = email;
     }
+
 
 
 }

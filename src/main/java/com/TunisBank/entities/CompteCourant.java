@@ -21,4 +21,13 @@ import java.io.Serializable;
 public class CompteCourant extends CompteBancaire implements Serializable {
 
     private double decouvert;
+
+
+    public Double getDecouvert() {
+        return decouvert;
+    }
+
+    public void setDecouvert(Double decouvert) {
+        this.decouvert = decouvert;
+    }
 }
