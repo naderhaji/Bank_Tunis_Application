@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Entity
+
 @Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class Client implements Serializable {
