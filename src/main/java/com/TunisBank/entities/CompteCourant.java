@@ -1,5 +1,6 @@
 package com.TunisBank.entities;
 
+import com.TunisBank.enums.AccountStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,10 @@ public class CompteCourant extends CompteBancaire implements Serializable {
 
     private double decouvert;
 
+    public static void setStaus(AccountStatus accountStatus) {
+
+    }
+
 
     public Double getDecouvert() {
         return decouvert;
@@ -30,4 +35,6 @@ public class CompteCourant extends CompteBancaire implements Serializable {
     public void setDecouvert(Double decouvert) {
         this.decouvert = decouvert;
     }
+
+
 }

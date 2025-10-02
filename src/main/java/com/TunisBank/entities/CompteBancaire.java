@@ -26,7 +26,7 @@ public abstract class CompteBancaire implements Serializable {
     @Column(nullable = false)
     private String devis = "TND";
     @Column(nullable = false)
-    private AccountStatus status;
+    public AccountStatus status;
     private Date createdAt = new Date();
     @ManyToOne
     private Client client;
@@ -77,19 +77,9 @@ public abstract class CompteBancaire implements Serializable {
         return status;
     }
 
-    public static void setStaus(AccountStatus status) {
+    public void setStatus(AccountStatus status) {
         this.status = status;
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }

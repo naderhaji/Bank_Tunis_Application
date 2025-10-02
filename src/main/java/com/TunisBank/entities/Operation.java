@@ -30,4 +30,42 @@ public class Operation implements Serializable {
     @Column(nullable = false)
     private TypeOperation typeOperation;
 
+
+    public Date getDateOperation() {
+        return dateOperation;
+    }
+
+    public void setDateOperation(Date dateOperation) {
+        this.dateOperation = dateOperation;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setCompte(CompteBancaire compte) {
+    }
+
+    public TypeOperation getTypeOperation() {
+        return typeOperation;
+    }
+
+    public void setTypeOperation(TypeOperation typeOperation) {
+        this.typeOperation = typeOperation;
+    }
+
+    public String getNumOperation() {
+        return numOperation;
+    }
+
+    public void setNumOperation(String numOperation) {
+        this.numOperation = numOperation;
+    }
+
+
+
 }

@@ -1,6 +1,7 @@
 package com.TunisBank.entities;
 
 
+import com.TunisBank.enums.AccountStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -19,4 +20,24 @@ import lombok.NoArgsConstructor;
 public class CompteEpargne extends CompteBancaire{
 
     private double tauxInteret;
+
+    public double getTauxInteret() {
+        return tauxInteret;
+    }
+
+    public void setTauxInteret(double tauxInteret) {
+        this.tauxInteret = tauxInteret;
+    }
+
+    public AccountStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AccountStatus status) {
+        this.status = status;
+    }
+
+    public void setStaus(AccountStatus accountStatus) {
+        this.status = status;
+    }
 }

@@ -9,9 +9,7 @@ import com.TunisBank.enums.AccountStatus;
 import com.TunisBank.repositories.ClientRepository;
 import com.TunisBank.repositories.CompteBancaireRepository;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class CompteServiceImpl implements CompteService {
 
@@ -41,6 +39,7 @@ public class CompteServiceImpl implements CompteService {
             compteCourant.setDecouvert(compteDto.getDecouvert());
             compteCourant.setClient(clientOpt.get());
             CompteCourant.setStaus(AccountStatus.ACTIVATED);
+            compteCourant.setNumCompte(generateAccountNumber());
             this.compteBancaireRepository.save(compteCourant);
 
         }
@@ -53,24 +52,56 @@ public class CompteServiceImpl implements CompteService {
             compteEpargne.setDevis(compteDto.getDevis());
             compteEpargne.setClient(clientOpt.get());
             compteEpargne.setStaus(AccountStatus.ACTIVATED);
-            this.compteBancaireRepository.save(null);
+            compteEpargne.setTauxInteret(compteDto.getTauxInteret());
+            compteEpargne.setNumCompte(generateAccountNumber());
+            this.compteBancaireRepository.save(compteEpargne);
 
         }
 
     }
 
+    private String generateAccountNumber() {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        //les 4 premiers chiffres sont 0
+        for (int i = 0; i < 4; i++) {
+            sb.append('0');
+        }
+        //les 4 chiffres suivants sont 0 ou 1
+        for (int i = 0; i < 4; i++) {
+            sb.append(random.nextInt(2));
+        }
+        //les 10 derniers chiffres sont générés aléatoirement
+        for (int i = 0; i < 10; i++) {
+            sb.append(random.nextInt(10));
+        }
+        return sb.toString();
+    }
+
     @Override
     public List<CompteEpargne> findComptesEpargne() {
-        return List.of();
+        List<CompteEpargne> list = new ArrayList<>();
+        for(CompteBancaire c: compteBancaireRepository.findAll()){
+            if(c instanceof CompteEpargne){
+                list.add((CompteEpargne) c);
+            }
+        }
+        return list;
     }
 
     @Override
     public List<CompteCourant> findComptesCourant() {
-        return List.of();
+        List<CompteCourant> list = new ArrayList<>();
+        for(CompteBancaire c: compteBancaireRepository.findAll()){
+            if(c instanceof CompteCourant){
+                list.add((CompteCourant) c);
+            }
+        }
+        return list;
     }
 
     @Override
     public CompteBancaire findOne(String numCompte) {
-        return null;
+        return this.compteBancaireRepository.findByNumCompte(numCompte).get();
     }
 }
